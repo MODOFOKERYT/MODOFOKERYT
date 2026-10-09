@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MODOFOKER: tu mundo digital, a un clic.">
+  <title>MODOFOKER | Tienda digital</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">🔥 Bienvenido a MODOFOKER · Tu mundo digital, a un clic</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="MODOFOKER inicio"><span class="brand-mark">M</span><span>MODO<span>FOKER</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    <nav id="mainNav">
+      <a class="active" href="#inicio">Inicio</a>
+      <a href="#tienda">Tienda</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#ayuda">Ayuda</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="searchButton" aria-label="Buscar">⌕</button>
+      <button class="cart-button" id="cartButton">🛒 <span>Carrito</span><b id="cartCount">0</b></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> TU TIENDA DIGITAL</div>
+        <h1>Todo lo digital.<br><span>En un solo lugar.</span></h1>
+        <p>Descubre recursos digitales, plantillas y herramientas para llevar tus ideas al siguiente nivel.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#tienda">Explorar tienda <span>↗</span></a>
+          <a class="button secondary" href="#categorias">Ver categorías</a>
+        </div>
+        <div class="trust-row"><span>⚡ Entrega digital</span><span>🔒 Compra protegida</span><span>💬 Soporte</span></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración decorativa de productos digitales">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="floating-card card-top"><span class="mini-icon">✦</span><div><small>RECURSOS PREMIUM</small><strong>Ideas sin límites</strong></div></div>
+        <div class="digital-cube"><div class="cube-face">M</div><div class="cube-glow"></div></div>
+        <div class="floating-card card-bottom"><span class="check">✓</span><div><small>TODO EN UN LUGAR</small><strong>Listo para descargar*</strong></div></div>
+        <span class="spark spark-one">✦</span><span class="spark spark-two">✧</span>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div><span class="benefit-icon">⚡</span><p><strong>Entrega digital</strong><small>Accede a tus compras</small></p></div>
+      <div><span class="benefit-icon">🛡</span><p><strong>Compra segura</strong><small>Protección de tu cuenta</small></p></div>
+      <div><span class="benefit-icon">💎</span><p><strong>Calidad premium</strong><small>Recursos seleccionados</small></p></div>
+      <div><span class="benefit-icon">💬</span><p><strong>Estamos para ayudarte</strong><small>Atención al cliente</small></p></div>
+    </section>
+
+    <section class="section categories" id="categorias">
+      <div class="section-heading"><div><span class="section-kicker">EXPLORA</span><h2>Compra por categoría</h2></div><p>Encuentra justo lo que necesitas.</p></div>
+      <div class="category-grid">
+        <button class="category-card selected" data-category="Todos"><span>✦</span><strong>Todo</strong><small>Ver catálogo</small></button>
+        <button class="category-card" data-category="Plantillas"><span>▤</span><strong>Plantillas</strong><small>Diseños listos</small></button>
+        <button class="category-card" data-category="Educación"><span>⌘</span><strong>Educación</strong><small>Aprende más</small></button>
+        <button class="category-card" data-category="Diseño"><span>◈</span><strong>Diseño</strong><small>Recursos creativos</small></button>
+        <button class="category-card" data-category="Herramientas"><span>⚙</span><strong>Herramientas</strong><small>Trabaja mejor</small></button>
+      </div>
+    </section>
+
+    <section class="section shop" id="tienda">
+      <div class="section-heading shop-heading"><div><span class="section-kicker">EL CATÁLOGO</span><h2>Productos destacados <span class="heading-dot">.</span></h2></div><div class="shop-tools"><input id="searchInput" type="search" placeholder="Buscar productos..." aria-label="Buscar productos"><select id="sortSelect" aria-label="Ordenar productos"><option value="featured">Destacados</option><option value="low">Precio: menor a mayor</option><option value="high">Precio: mayor a menor</option></select></div></div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="demo-note">* Catálogo de demostración: los productos y precios son ejemplos editables.</p>
+    </section>
+
+    <section class="promo">
+      <div class="promo-icon">✦</div><div><span class="section-kicker">¿LISTO PARA EMPEZAR?</span><h2>Tu próxima gran idea empieza aquí.</h2><p>Explora el catálogo y encuentra recursos para crear, aprender y crecer.</p></div><a class="button primary" href="#tienda">Ver productos ↗</a>
+    </section>
+  </main>
+
+  <footer id="ayuda">
+    <a class="brand" href="#"><span class="brand-mark">M</span><span>MODO<span>FOKER</span></span></a>
+    <p>Tu mundo digital, a un clic.</p>
+    <div class="footer-links"><a href="#tienda">Tienda</a><a href="#ayuda">Contacto</a><a href="#">Privacidad</a><a href="#">Términos</a></div>
+    <small>© <span id="year"></span> MODOFOKER. Todos los derechos reservados.</small>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-panel-head"><div><span class="section-kicker">TU PEDIDO</span><h3>Carrito</h3></div><button id="closeCart" aria-label="Cerrar carrito">✕</button></div>
+    <div id="cartItems" class="cart-items"><p class="empty-cart">Tu carrito está vacío.</p></div>
+    <div class="cart-total"><span>Total</span><strong id="cartTotal">US$0.00</strong></div>
+    <button class="button primary checkout" id="checkoutButton">Continuar <span>↗</span></button>
+    <small class="cart-disclaimer">Demostración: el pago real requiere integrar una pasarela de pago y un servidor.</small>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <script src="script.js"></script>
+</body>
+</html>
