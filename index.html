@@ -1,10 +1,95 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MODOFOKERYT Estore | Panel</title><link rel="stylesheet" href="styles.css"></head><body>
-<header><div class="logo">M</div><div><b>MODOFOKERYT <span>Estore</span></b><small>Panel de control</small></div><button id="logout" class="hide">Salir</button></header><main>
-<section id="login" class="card login"><div class="lock">🔐</div><h1>Acceso privado</h1><p>Administra tu tienda desde un solo lugar.</p><label>Contraseña</label><input id="pass" type="password" placeholder="Contraseña del panel"><button id="enter" class="primary">Entrar</button><p id="err" class="error"></p><small>Demo: contraseña inicial <code>Admin123!</code>. No publiques esta demo como panel seguro.</small></section>
-<section id="app" class="hide"><div class="welcome"><div><small>RESUMEN</small><h1>¡Bienvenido!</h1><p>Administra tu tienda digital.</p></div><span class="online">● Panel abierto</span></div>
-<div class="stats"><div class="card"><small>Productos</small><strong id="pc">0</strong></div><div class="card"><small>Pedidos</small><strong id="oc">0</strong></div><div class="card"><small>Ventas marcadas</small><strong id="sales">$0.00</strong></div></div>
-<nav><button class="tab active" data-show="products">📦 Productos</button><button class="tab" data-show="orders">🧾 Pedidos</button><button class="tab" data-show="notes">📝 Notas</button></nav>
-<section id="products" class="card section"><h2>Mis productos</h2><p>Añade y administra el catálogo.</p><form id="pf"><label>Nombre</label><input id="pn" required placeholder="Ej. Archivo premium"><label>Precio (USD)</label><input id="pp" type="number" min="0" step=".01" required placeholder="15.00"><label>Descripción</label><input id="pd" placeholder="Descripción breve"><label>Enlace de entrega (opcional)</label><input id="pl" type="url" placeholder="https://..."><button class="primary">+ Añadir producto</button></form><div id="plist" class="list"></div></section>
-<section id="orders" class="card section hide"><h2>Pedidos</h2><p>Registro manual; no verifica pagos automáticamente.</p><form id="of"><label>Nombre del cliente</label><input id="on" required placeholder="Nombre"><label>Correo (opcional)</label><input id="oe" type="email" placeholder="cliente@correo.com"><label>Importe (USD)</label><input id="oa" type="number" min="0" step=".01" required placeholder="15.00"><label>Estado</label><select id="os"><option>Pendiente</option><option>Pagado</option><option>Entregado</option><option>Cancelado</option></select><button class="primary">+ Registrar pedido</button></form><div id="olist" class="list"></div></section>
-<section id="notes" class="card section hide"><h2>Notas rápidas</h2><p>Se guardan en este navegador.</p><textarea id="note" rows="5" placeholder="Escribe una nota..."></textarea><button id="saveNote" class="primary">Guardar notas</button><p id="saved" class="success"></p></section>
-<p class="disclaimer">Esta versión guarda datos solo en este navegador. No comparte datos entre dispositivos, no verifica pagos y no entrega archivos automáticamente.</p><button id="export" class="secondary">Exportar copia JSON</button></section></main><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MODOFOKER: tu mundo digital, a un clic.">
+  <title>MODOFOKER | Tienda digital</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">🔥 Bienvenido a MODOFOKER · Tu mundo digital, a un clic</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="MODOFOKER inicio"><span class="brand-mark">M</span><span>MODO<span>FOKER</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    <nav id="mainNav">
+      <a class="active" href="#inicio">Inicio</a>
+      <a href="#tienda">Tienda</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#ayuda">Ayuda</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="searchButton" aria-label="Buscar">⌕</button>
+      <button class="cart-button" id="cartButton">🛒 <span>Carrito</span><b id="cartCount">0</b></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> TU TIENDA DIGITAL</div>
+        <h1>Todo lo digital.<br><span>En un solo lugar.</span></h1>
+        <p>Descubre recursos digitales, plantillas y herramientas para llevar tus ideas al siguiente nivel.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#tienda">Explorar tienda <span>↗</span></a>
+          <a class="button secondary" href="#categorias">Ver categorías</a>
+        </div>
+        <div class="trust-row"><span>⚡ Entrega digital</span><span>🔒 Compra protegida</span><span>💬 Soporte</span></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración decorativa de productos digitales">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="floating-card card-top"><span class="mini-icon">✦</span><div><small>RECURSOS PREMIUM</small><strong>Ideas sin límites</strong></div></div>
+        <div class="digital-cube"><div class="cube-face">M</div><div class="cube-glow"></div></div>
+        <div class="floating-card card-bottom"><span class="check">✓</span><div><small>TODO EN UN LUGAR</small><strong>Listo para descargar*</strong></div></div>
+        <span class="spark spark-one">✦</span><span class="spark spark-two">✧</span>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div><span class="benefit-icon">⚡</span><p><strong>Entrega digital</strong><small>Accede a tus compras</small></p></div>
+      <div><span class="benefit-icon">🛡</span><p><strong>Compra segura</strong><small>Protección de tu cuenta</small></p></div>
+      <div><span class="benefit-icon">💎</span><p><strong>Calidad premium</strong><small>Recursos seleccionados</small></p></div>
+      <div><span class="benefit-icon">💬</span><p><strong>Estamos para ayudarte</strong><small>Atención al cliente</small></p></div>
+    </section>
+
+    <section class="section categories" id="categorias">
+      <div class="section-heading"><div><span class="section-kicker">EXPLORA</span><h2>Compra por categoría</h2></div><p>Encuentra justo lo que necesitas.</p></div>
+      <div class="category-grid">
+        <button class="category-card selected" data-category="Todos"><span>✦</span><strong>Todo</strong><small>Ver catálogo</small></button>
+        <button class="category-card" data-category="Plantillas"><span>▤</span><strong>Plantillas</strong><small>Diseños listos</small></button>
+        <button class="category-card" data-category="Educación"><span>⌘</span><strong>Educación</strong><small>Aprende más</small></button>
+        <button class="category-card" data-category="Diseño"><span>◈</span><strong>Diseño</strong><small>Recursos creativos</small></button>
+        <button class="category-card" data-category="Herramientas"><span>⚙</span><strong>Herramientas</strong><small>Trabaja mejor</small></button>
+      </div>
+    </section>
+
+    <section class="section shop" id="tienda">
+      <div class="section-heading shop-heading"><div><span class="section-kicker">EL CATÁLOGO</span><h2>Productos destacados <span class="heading-dot">.</span></h2></div><div class="shop-tools"><input id="searchInput" type="search" placeholder="Buscar productos..." aria-label="Buscar productos"><select id="sortSelect" aria-label="Ordenar productos"><option value="featured">Destacados</option><option value="low">Precio: menor a mayor</option><option value="high">Precio: mayor a menor</option></select></div></div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="demo-note">* Catálogo de demostración: los productos y precios son ejemplos editables.</p>
+    </section>
+
+    <section class="promo">
+      <div class="promo-icon">✦</div><div><span class="section-kicker">¿LISTO PARA EMPEZAR?</span><h2>Tu próxima gran idea empieza aquí.</h2><p>Explora el catálogo y encuentra recursos para crear, aprender y crecer.</p></div><a class="button primary" href="#tienda">Ver productos ↗</a>
+    </section>
+  </main>
+
+  <footer id="ayuda">
+    <a class="brand" href="#"><span class="brand-mark">M</span><span>MODO<span>FOKER</span></span></a>
+    <p>Tu mundo digital, a un clic.</p>
+    <div class="footer-links"><a href="#tienda">Tienda</a><a href="#ayuda">Contacto</a><a href="#">Privacidad</a><a href="#">Términos</a></div>
+    <small>© <span id="year"></span> MODOFOKER. Todos los derechos reservados.</small>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-panel-head"><div><span class="section-kicker">TU PEDIDO</span><h3>Carrito</h3></div><button id="closeCart" aria-label="Cerrar carrito">✕</button></div>
+    <div id="cartItems" class="cart-items"><p class="empty-cart">Tu carrito está vacío.</p></div>
+    <div class="cart-total"><span>Total</span><strong id="cartTotal">US$0.00</strong></div>
+    <button class="button primary checkout" id="checkoutButton">Continuar <span>↗</span></button>
+    <small class="cart-disclaimer">Demostración: el pago real requiere integrar una pasarela de pago y un servidor.</small>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <script src="script.js"></script>
+</body>
+</html>

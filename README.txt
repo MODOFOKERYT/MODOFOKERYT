@@ -17,3 +17,6 @@ no registra cuentas, no guarda compras en un servidor y no entrega descargas pro
 Para lanzar la tienda se debe conectar un backend, base de datos, autenticación, almacenamiento seguro
 de archivos y una pasarela de pago. Cambia los productos, precios, textos, términos y datos de contacto
 antes de publicarla.
+
+
+DISEÑO VISUAL: fondo negro con detalles y botones rojos, tanto en la tienda como en el panel de control.
